@@ -17,7 +17,7 @@ struct memory1{
 };
 double exponential(double mean){
 	double r = (double)rand()/(double)1000000000;
-	double lambda = (double)1/mean; 
+	double lambda = (double)1/mean;
 	return lambda*exp((-1)*lambda*r);
 }
 int main(int argc, char* argv[]){
@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
 	if (shmid < 0){
 		printf("*** shmget error (consumer) ***\n");
 		exit(1);
-	
+
 	}
 	shmptr = (struct memory1 * )shmat(shmid,NULL, 0);
 	if((int)shmptr == -1){
@@ -69,7 +69,7 @@ int main(int argc, char* argv[]){
 		micros = end - start;
 		printf("%dth item by consumer %d from buffer location %d @ time:%02d:%02d:%02d\n", i, pid, shmptr->out,l->tm_hour,l->tm_min,l->tm_sec);
 	 	//printf("%dth item by consumer %d from buffer location %d @ time:%03lu\n", i, pid, shmptr->out, micros);
-		
+
 		fflush(stdout);
 
 		/*out = fopen("PCout","w");
@@ -77,13 +77,9 @@ int main(int argc, char* argv[]){
 		fclose(out);*/
 		semup(mutex);
 		semup(empty);
-		//sleep(m2);
-		sleep((int)(exponential((double)m2)*10000));
+		sleep(m2);
+		//sleep((int)(exponential((double)m2)*10000));
 	}
 
 	return 0;
 }
-
-
-		
-
