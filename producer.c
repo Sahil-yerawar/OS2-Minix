@@ -16,7 +16,7 @@ struct memory1{
 	int buffer[200];
 };
 double exponential(double mean){
-	double r = (double)rand()/(double)1000000000;
+	double r = (double)rand()/(long)1000000000;
 	double lambda = (double)1/mean;
 	return lambda*exp((-1)*lambda*r);
 }
@@ -77,8 +77,8 @@ int main(int argc, char* argv[]){
 		fclose(in);*/
 		semup(mutex);
 		semup(full);
-		sleep(m1);
-		//sleep((int)(exponential((double)m1)*10000));
+		//sleep(m1);
+		sleep((exponential((double)m1)*50));
 	}
 
 	return 0;
