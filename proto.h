@@ -108,6 +108,8 @@ void tell_vfs(struct mproc *rmp, message *m_ptr);
 /*semaphore.c*/
 int do_semval(void);
 int do_seminit(void);
+
 int do_semrelease(void);
 int do_semacquire(void);
+
 int do_semfree(void);

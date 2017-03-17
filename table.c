@@ -69,7 +69,9 @@ int (*call_vec[])(void) = {
 	no_sys,		/* 55 = fcntl	*/
 	do_semval,	/* 56 = semval	*/
 	no_sys,		/* 57 = unused	*/
+
 	do_semrelease,	/* 58 = semup	*/
+
 	do_exec,	/* 59 = execve	*/
 	no_sys,		/* 60 = umask	*/
 	no_sys,		/* 61 = chroot	*/
@@ -90,7 +92,9 @@ int (*call_vec[])(void) = {
 	do_reboot,	/* 76 = reboot	*/
 	do_svrctl,	/* 77 = svrctl	*/
 	do_sysuname,	/* 78 = sysuname */
+
 	do_semacquire,	/* 79 = semdown */
+
 	no_sys,		/* 80 = (getdents) */
 	no_sys, 	/* 81 = unused */
 	no_sys, 	/* 82 = (fstatfs) */
